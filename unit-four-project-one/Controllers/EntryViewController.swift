@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import Photos
 
 class EntryViewController: UIViewController {
     
@@ -17,6 +18,7 @@ class EntryViewController: UIViewController {
             entryImageView.image = image
         }
     }
+    var photoAccessPermission = false
     
     var savedEntries = [Entry]()
     
@@ -38,12 +40,26 @@ class EntryViewController: UIViewController {
     //MARK: - IBActions
     
     @IBAction func addNewPhotoButtonPressed(_ sender: Any) {
-        print("hi")
-        let imagePickerController = UIImagePickerController()
-        imagePickerController.delegate = self
-        imagePickerController.sourceType = .photoLibrary
+        getImageAccess()
+        let imagePicker = UIImagePickerController()
+        imagePicker.delegate = self
+        imagePicker.sourceType = .photoLibrary
+        
+        if photoAccessPermission {
+            present(imagePicker, animated: true, completion: nil)
+        } else {
+            let alert = UIAlertController(title: "Need PhotoPermission", message: "This app needs photo permission", preferredStyle: .alert)
+            alert.addAction(UIAlertAction(title: "Ok", style: .default, handler: {(alertAction) in
+                self.photoAccessPermission = true
+                self.present(imagePicker, animated: true, completion: nil)
+            }))
+            alert.addAction(UIAlertAction(title: "No", style: .destructive, handler: { (alertAction) in
+                self.photoAccessPermission = false
+            }))
+            self.present(alert, animated: true, completion: nil)
 
-        present(imagePickerController, animated: true, completion: nil)
+        }
+
     }
     
     @IBAction func saveEntryButtonPressed(_ sender: UIBarButtonItem) {
@@ -60,10 +76,46 @@ class EntryViewController: UIViewController {
             print("No data")
         }
     }
-    func loadDefault() {
+    private func loadDefault() {
         self.savedEntries = try! EntryPersistenceHelper.manager.getEntries()
         self.image = UIImage(data: savedEntries[0].image)!
     }
+    
+    private func getImageAccess() {
+        let photolibrary = PHPhotoLibrary.authorizationStatus()
+        
+        switch photolibrary {
+        case .authorized:
+            self.photoAccessPermission = true
+        case .denied:
+            self.photoAccessPermission = false
+            let alert = UIAlertController(title: "No photo library access", message: "Ha!", preferredStyle: .alert)
+            alert.addAction(UIAlertAction(title: "Ok", style: .default, handler: {(alertAction) in
+                self.photoAccessPermission = true
+            }))
+            self.present(alert, animated: true, completion: nil)
+        case.restricted:
+            self.photoAccessPermission = false
+        case .notDetermined:
+            PHPhotoLibrary.requestAuthorization { (permission) in
+                switch permission {
+                case .authorized:
+                    self.photoAccessPermission = true
+                case.denied:
+                    self.photoAccessPermission = false
+                case .restricted:
+                    self.photoAccessPermission = false
+                case .notDetermined:
+                    print("error")
+                default:
+                    print("error")
+                }
+            }
+        default:
+            print("Hi")
+        }
+    }
+    
     
 }
 

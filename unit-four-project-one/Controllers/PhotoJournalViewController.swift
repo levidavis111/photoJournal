@@ -39,6 +39,49 @@ class PhotoJournalViewController: UIViewController {
     @IBAction func addPhotoButtonPressed(_ sender: UIBarButtonItem) {
         
     }
+    
+    @IBAction func callActionSheetButtonPressed(_ sender: UIButton) {
+        let alert = UIAlertController(title: nil, message: nil, preferredStyle: .actionSheet)
+        
+        let destroyAction = UIAlertAction(title: "Delete", style: .destructive) { (action) in
+                                            // Respond to user selection of the action
+        }
+        let editAction = UIAlertAction(title: "Edit", style: .default) { (action) in
+            print("hi")
+        }
+        let shareAction = UIAlertAction(title: "Share", style: .default) { (action) in
+            print("hi")
+        }
+        
+        let cancelAction = UIAlertAction(title: "Cancel", style: .cancel) { (action) in
+                                            // Respond to user selection of the action
+        }
+        
+       
+        alert.addAction(destroyAction)
+        alert.addAction(editAction)
+        alert.addAction(shareAction)
+        alert.addAction(cancelAction)
+        
+        
+        self.present(alert, animated: true) {
+            // The alert was presented
+        }
+    }
+    
+//    {
+//        let alert = UIAlertController(title: "Need PhotoPermission", message: "This app needs photo permission", preferredStyle: .alert)
+//        alert.addAction(UIAlertAction(title: "Ok", style: .default, handler: {(alertAction) in
+//            self.photoAccessPermission = true
+//            self.present(imagePicker, animated: true, completion: nil)
+//        }))
+//        alert.addAction(UIAlertAction(title: "No", style: .destructive, handler: { (alertAction) in
+//            self.photoAccessPermission = false
+//        }))
+//        self.present(alert, animated: true, completion: nil)
+//
+//    }
+    
     //MARK: - Private functions
     
     private func loadJournal() {
@@ -68,6 +111,7 @@ extension PhotoJournalViewController: UICollectionViewDataSource {
             let oneEntry = photoJournal[indexPath.row]
             let image = UIImage(data: oneEntry.image)
             cell.photoImageView.image = image
+            cell.captionLabelOutlet.text = oneEntry.description
             return cell
         }
         

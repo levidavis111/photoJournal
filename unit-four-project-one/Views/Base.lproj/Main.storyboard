@@ -60,6 +60,14 @@
                                                         <constraint firstAttribute="width" constant="372" id="qId-VC-qEc"/>
                                                     </constraints>
                                                 </imageView>
+                                                <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="YUD-h2-fBL">
+                                                    <rect key="frame" x="365" y="238" width="27" height="22"/>
+                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                    <state key="normal" title="Action Sheet Button" image="ellipsis" catalog="system"/>
+                                                    <connections>
+                                                        <action selector="callActionSheetButtonPressed:" destination="BYZ-38-t0r" eventType="touchUpInside" id="YsU-Nr-ZfO"/>
+                                                    </connections>
+                                                </button>
                                             </subviews>
                                         </view>
                                         <constraints>
@@ -114,7 +122,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2244.927536231884" y="-7.3660714285714279"/>
+            <point key="canvasLocation" x="2243.4782608695655" y="-7.3660714285714279"/>
         </scene>
         <!--Entry View Controller-->
         <scene sceneID="ubs-Rv-2lq">
@@ -205,4 +213,7 @@
             <point key="canvasLocation" x="1334.7826086956522" y="-7.3660714285714279"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="ellipsis" catalog="system" width="64" height="20"/>
+    </resources>
 </document>
