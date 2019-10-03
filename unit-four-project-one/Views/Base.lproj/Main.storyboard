@@ -96,7 +96,7 @@
                                 </items>
                             </toolbar>
                         </subviews>
-                        <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
                             <constraint firstItem="mJw-ak-CsQ" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="0oh-Yw-WvP"/>
                             <constraint firstItem="mJw-ak-CsQ" firstAttribute="bottom" secondItem="6Tk-OE-BBY" secondAttribute="bottom" id="2ti-VG-OeZ"/>

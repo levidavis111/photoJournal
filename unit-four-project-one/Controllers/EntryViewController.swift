@@ -18,6 +18,8 @@ class EntryViewController: UIViewController {
         }
     }
     
+    var savedEntries = [Entry]()
+    
     var entryText = String()
     
     //MARK: - Outlets
@@ -28,6 +30,7 @@ class EntryViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        loadDefault()
 
         // Do any additional setup after loading the view.
     }
@@ -56,6 +59,10 @@ class EntryViewController: UIViewController {
         } else {
             print("No data")
         }
+    }
+    func loadDefault() {
+        self.savedEntries = try! EntryPersistenceHelper.manager.getEntries()
+        self.image = UIImage(data: savedEntries[0].image)!
     }
     
 }
