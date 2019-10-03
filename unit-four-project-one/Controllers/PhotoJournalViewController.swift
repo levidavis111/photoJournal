@@ -9,23 +9,64 @@
 import UIKit
 
 class PhotoJournalViewController: UIViewController {
-
+    //MARK: - Local variables
+    var photoJournal = [Entry]() {
+        didSet {
+            photoCollectionView.reloadData()
+        }
+    }
+    //MARK: - Outlets
+    
     @IBOutlet weak var photoCollectionView: UICollectionView!
+    
+    //MARK: - Override Functions
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        // Do any additional setup after loading the view.
+        setDelegates()
     }
     
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
+    override func viewWillAppear(_ animated: Bool) {
+        loadJournal()
     }
-    */
+    
+    //MARK: - IBActions
+    
+    @IBAction func addPhotoButtonPressed(_ sender: UIBarButtonItem) {
+        
+    }
+    //MARK: - Private functions
+    
+    private func loadJournal() {
+        
+        do {
+            let savedEntries = try EntryPersistenceHelper.manager.getEntries()
+            self.photoJournal = savedEntries
+        } catch {
+            print(error)
+            return
+        }
+        
+    }
+    private func setDelegates() {
+        photoCollectionView.delegate = self
+    }
 
+}
+
+extension PhotoJournalViewController: UICollectionViewDataSource {
+    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+        return photoJournal.count
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+        if let 
+        
+        return UICollectionViewCell()
+    }
+    
+    
+}
+
+extension PhotoJournalViewController: UICollectionViewDelegateFlowLayout {
+    
 }
