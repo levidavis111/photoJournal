@@ -162,6 +162,8 @@
                                             <action selector="addNewPhotoButtonPressed:" destination="AAc-6H-kXl" id="L08-6t-njR"/>
                                         </connections>
                                     </barButtonItem>
+                                    <barButtonItem style="plain" systemItem="flexibleSpace" id="4AO-oi-Oqj"/>
+                                    <barButtonItem title="Item" image="camera" catalog="system" id="eF9-he-E8o"/>
                                 </items>
                             </toolbar>
                         </subviews>
@@ -214,6 +216,7 @@
         </scene>
     </scenes>
     <resources>
+        <image name="camera" catalog="system" width="64" height="48"/>
         <image name="ellipsis" catalog="system" width="64" height="20"/>
     </resources>
 </document>
