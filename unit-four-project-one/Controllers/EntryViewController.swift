@@ -20,8 +20,6 @@ class EntryViewController: UIViewController {
     }
     var photoAccessPermission = false
     
-    var savedEntries = [Entry]()
-    
     var entryText = String()
     
     //MARK: - Outlets
@@ -33,8 +31,7 @@ class EntryViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         entryTextView.delegate = self
-
-        // Do any additional setup after loading the view.
+        loadDefaultImage()
     }
     
     //MARK: - IBActions
@@ -68,8 +65,15 @@ class EntryViewController: UIViewController {
     }
     //MARK: - Private functions
     
+    private func loadDefaultImage() {
+        if let image = try? EntryPersistenceHelper.manager.getEntries().last?.image {
+            self.entryImageView.image = UIImage(data: image)
+        } else {
+            self.entryImageView.image = UIImage(contentsOfFile: "placeHolder")
+        }
+    }
+    
     private func createEntryObject() {
-        let imageData = self.image.pngData()
         if let imageToSet = self.image.pngData() {
             let newEntry = Entry(description: entryText, image: imageToSet)
             try? EntryPersistenceHelper.manager.save(newEntry: newEntry)
@@ -131,7 +135,6 @@ extension EntryViewController: UITextViewDelegate {
 extension EntryViewController: UIImagePickerControllerDelegate, UINavigationControllerDelegate {
     func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
         guard let image = info[.originalImage] as? UIImage else {
-            //couldn't get image :(
             return
         }
         self.image = image
