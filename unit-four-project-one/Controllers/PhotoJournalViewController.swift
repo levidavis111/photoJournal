@@ -69,7 +69,8 @@ extension PhotoJournalViewController: UICollectionViewDataSource {
             let oneEntry = photoJournal[indexPath.row]
             let image = UIImage(data: oneEntry.image)
             cell.photoImageView.image = image
-            cell.captionLabelOutlet.text = oneEntry.description
+            cell.captionLabelOutlet.text = "Caption: \(oneEntry.description)"
+            cell.dateLabelOutlet.text = "\(Date().description(with: .autoupdatingCurrent))"
             cell.delegate = self
             cell.actionSheetButtonOutlet.tag = indexPath.row
             return cell

@@ -32,7 +32,6 @@ class EntryViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        loadDefault()
         entryTextView.delegate = self
 
         // Do any additional setup after loading the view.
@@ -65,8 +64,9 @@ class EntryViewController: UIViewController {
     
     @IBAction func saveEntryButtonPressed(_ sender: UIBarButtonItem) {
         createEntryObject()
+        self.navigationController?.popViewController(animated: true)
     }
-    
+    //MARK: - Private functions
     
     private func createEntryObject() {
         let imageData = self.image.pngData()
@@ -76,10 +76,6 @@ class EntryViewController: UIViewController {
         } else {
             print("No data")
         }
-    }
-    private func loadDefault() {
-        self.savedEntries = try! EntryPersistenceHelper.manager.getEntries()
-        self.image = UIImage(data: savedEntries.last?.image ?? savedEntries[0].image)!
     }
     
     private func getImageAccess() {
