@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		FC0B36BB23492B1300E72DC7 /* Protocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC0B36BA23492B1300E72DC7 /* Protocol.swift */; };
 		FCEF13F1233E735A0061BEA9 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = FCEF13F0233E735A0061BEA9 /* AppDelegate.swift */; };
 		FCEF13F6233E735A0061BEA9 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FCEF13F4233E735A0061BEA9 /* Main.storyboard */; };
 		FCEF13F8233E735D0061BEA9 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = FCEF13F7233E735D0061BEA9 /* Assets.xcassets */; };
@@ -31,6 +32,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		FC0B36BA23492B1300E72DC7 /* Protocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Protocol.swift; sourceTree = "<group>"; };
 		FCEF13ED233E735A0061BEA9 /* unit-four-project-one.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "unit-four-project-one.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		FCEF13F0233E735A0061BEA9 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		FCEF13F5233E735A0061BEA9 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -147,6 +149,7 @@
 			isa = PBXGroup;
 			children = (
 				FCEF14A4234427A60061BEA9 /* Entry.swift */,
+				FC0B36BA23492B1300E72DC7 /* Protocol.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -255,6 +258,7 @@
 				FCEF14A5234427A60061BEA9 /* Entry.swift in Sources */,
 				FCEF1414233E73FE0061BEA9 /* PhotoJournalViewController.swift in Sources */,
 				FCEF1416233E75EA0061BEA9 /* PhotoJournalCollectionViewCell.swift in Sources */,
+				FC0B36BB23492B1300E72DC7 /* Protocol.swift in Sources */,
 				FCEF14A32344229C0061BEA9 /* EntryViewController.swift in Sources */,
 				FCEF14A7234428290061BEA9 /* EntryPersistenceHelper.swift in Sources */,
 				FCEF13F1233E735A0061BEA9 /* AppDelegate.swift in Sources */,

@@ -19,6 +19,13 @@ struct EntryPersistenceHelper {
         return try persistenceHelper.getObjects()
     }
     
+   func delete(element: [Entry], atIndex: Int) throws {
+    try persistenceHelper.delete(element: element, index: atIndex)
+    
+
+    }
+    
+    
     private let persistenceHelper = PersistenceHelper<Entry>(fileName: "entries.plist")
     private init(){}
 }

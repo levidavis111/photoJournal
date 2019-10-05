@@ -33,6 +33,7 @@ class EntryViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         loadDefault()
+        entryTextView.delegate = self
 
         // Do any additional setup after loading the view.
     }
@@ -78,7 +79,7 @@ class EntryViewController: UIViewController {
     }
     private func loadDefault() {
         self.savedEntries = try! EntryPersistenceHelper.manager.getEntries()
-        self.image = UIImage(data: savedEntries[0].image)!
+        self.image = UIImage(data: savedEntries.last?.image ?? savedEntries[0].image)!
     }
     
     private func getImageAccess() {
@@ -120,8 +121,14 @@ class EntryViewController: UIViewController {
 }
 
 extension EntryViewController: UITextViewDelegate {
-    func textViewDidEndEditing(_ textView: UITextView) {
+    func textViewDidBeginEditing(_ textView: UITextView) {
+        self.entryTextView.text = ""
+    }
+    
+    
+    func textViewDidChange(_ textView: UITextView) {
         self.entryText = textView.text ?? ""
+
     }
 }
 

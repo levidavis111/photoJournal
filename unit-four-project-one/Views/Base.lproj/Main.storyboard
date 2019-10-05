@@ -65,7 +65,7 @@
                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                     <state key="normal" title="Action Sheet Button" image="ellipsis" catalog="system"/>
                                                     <connections>
-                                                        <action selector="callActionSheetButtonPressed:" destination="BYZ-38-t0r" eventType="touchUpInside" id="YsU-Nr-ZfO"/>
+                                                        <action selector="actionSheetButtonPressed:" destination="nDf-EQ-wtx" eventType="touchUpInside" id="cxY-rk-uMG"/>
                                                     </connections>
                                                 </button>
                                             </subviews>
@@ -79,6 +79,7 @@
                                             <constraint firstItem="dpX-x7-RSu" firstAttribute="top" secondItem="u91-bz-bpe" secondAttribute="bottom" constant="24" id="o3h-Q3-Ez1"/>
                                         </constraints>
                                         <connections>
+                                            <outlet property="actionSheetButtonOutlet" destination="YUD-h2-fBL" id="78S-9k-q2p"/>
                                             <outlet property="captionLabelOutlet" destination="dpX-x7-RSu" id="moo-bX-aPW"/>
                                             <outlet property="dateLabelOutlet" destination="Idz-Q4-1L4" id="qrE-Nx-zNt"/>
                                             <outlet property="photoImageView" destination="u91-bz-bpe" id="HBe-Hx-fAU"/>
@@ -132,18 +133,24 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" ambiguous="YES" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="4K1-ef-Jcn">
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" usesAttributedText="YES" translatesAutoresizingMaskIntoConstraints="NO" id="4K1-ef-Jcn">
                                 <rect key="frame" x="20" y="88" width="374" height="225"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="374" id="9Sp-Os-e7T"/>
                                     <constraint firstAttribute="height" constant="225" id="icX-De-j2v"/>
                                 </constraints>
-                                <string key="text">Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Nam liber te conscient to factor tum poen legum odioque civiuda.</string>
-                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                                <attributedString key="attributedText">
+                                    <fragment content="Insert Caption:">
+                                        <attributes>
+                                            <color key="NSColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                            <font key="NSFont" size="24" name=".SFNSDisplay"/>
+                                        </attributes>
+                                    </fragment>
+                                </attributedString>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences" enablesReturnKeyAutomatically="YES"/>
                             </textView>
-                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="RWS-Jm-0Wc">
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="RWS-Jm-0Wc">
                                 <rect key="frame" x="20" y="321" width="374" height="232"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="232" id="hgL-DP-ReL"/>
@@ -169,10 +176,11 @@
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
+                            <constraint firstItem="RWS-Jm-0Wc" firstAttribute="top" secondItem="4K1-ef-Jcn" secondAttribute="bottom" constant="8" id="1Sm-Fv-Lho"/>
+                            <constraint firstItem="4K1-ef-Jcn" firstAttribute="leading" secondItem="MRj-Qm-YVl" secondAttribute="leading" constant="20" id="7Ew-0C-wrJ"/>
                             <constraint firstItem="RWS-Jm-0Wc" firstAttribute="leading" secondItem="MRj-Qm-YVl" secondAttribute="leading" constant="20" id="9qn-3b-nEV"/>
-                            <constraint firstItem="4K1-ef-Jcn" firstAttribute="leading" secondItem="MRj-Qm-YVl" secondAttribute="leading" constant="20" id="B5C-3k-YoA"/>
                             <constraint firstItem="oK8-DC-yOS" firstAttribute="centerX" secondItem="MRj-Qm-YVl" secondAttribute="centerX" id="CO4-Vy-Dpc"/>
-                            <constraint firstItem="RWS-Jm-0Wc" firstAttribute="top" secondItem="4K1-ef-Jcn" secondAttribute="bottom" constant="8" id="j1C-eE-DyJ"/>
+                            <constraint firstItem="4K1-ef-Jcn" firstAttribute="top" secondItem="MRj-Qm-YVl" secondAttribute="top" id="hgy-7D-kKI"/>
                             <constraint firstItem="oK8-DC-yOS" firstAttribute="bottom" secondItem="MRj-Qm-YVl" secondAttribute="bottom" id="tGZ-KP-ELl"/>
                             <constraint firstItem="oK8-DC-yOS" firstAttribute="leading" secondItem="MRj-Qm-YVl" secondAttribute="leading" id="uAE-rO-KL8"/>
                         </constraints>
