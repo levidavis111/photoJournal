@@ -30,18 +30,3 @@ struct EntryPersistenceHelper {
     private init(){}
 }
 
-
-//struct PhotoPersistenceHelper {
-//    static let manager = PhotoPersistenceHelper()
-//
-//    func save(newPhoto: Photo) throws {
-//        try persistenceHelper.save(newElement: newPhoto)
-//    }
-//
-//    func getPhotos() throws -> [Photo] {
-//        return try persistenceHelper.getObjects()
-//    }
-//
-//    private let persistenceHelper = PersistenceHelper<Photo>(fileName: "photos.plist")
-//    private init() {}
-//}

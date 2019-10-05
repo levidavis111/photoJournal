@@ -32,12 +32,6 @@ struct PersistenceHelper<T: Codable> {
         
     }
     
-    
-//    func edit(element: T, atIndex: Int) {
-//        var elements = try getObjects()
-//        elements.remove(at: atIndex)
-//        
-//    }
     init(fileName: String) {
         self.fileName = fileName
     }
