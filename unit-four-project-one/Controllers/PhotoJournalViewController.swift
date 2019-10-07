@@ -55,11 +55,12 @@ class PhotoJournalViewController: UIViewController {
     }
     private func setDelegates() {
         photoCollectionView.dataSource = self
+        
     }
     
 }
 
-extension PhotoJournalViewController: UICollectionViewDataSource {
+extension PhotoJournalViewController: UICollectionViewDataSource, UICollectionViewDelegate {
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         return photoJournal.count
     }
@@ -119,6 +120,7 @@ extension PhotoJournalViewController: PhotoJournalCellDelegate {
             
         }
         let editAction = UIAlertAction(title: "Edit", style: .default) { (action) in
+            
             let alert = UIAlertController(title: "", message: "I DO NOT KNOW HOW TO EDIT", preferredStyle: .alert)
             let action = UIAlertAction(title: "OK", style: .destructive, handler: nil)
             alert.addAction(action)

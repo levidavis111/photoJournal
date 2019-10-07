@@ -53,7 +53,7 @@
                                                 <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="YUD-h2-fBL">
                                                     <rect key="frame" x="365" y="238" width="27" height="22"/>
                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                                    <state key="normal" title="Action Sheet Button" image="ellipsis" catalog="system"/>
+                                                    <state key="normal" image="ellipsis" catalog="system"/>
                                                     <connections>
                                                         <action selector="actionSheetButtonPressed:" destination="nDf-EQ-wtx" eventType="touchUpInside" id="cxY-rk-uMG"/>
                                                     </connections>
